@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Photo St-Cergue 2026 - L'eau dans tous ses états</title>
+    <meta name="description" content="Le 1er festival Photo de St-Cergue aura lieu du 13 au 15 mars 2026 et aura pour thème L'Eau dans Tous ses États">
+    <style>
+        :root {
+            --primary-color: rgb(2, 105, 150);
+            --secondary-color: rgb(196, 30, 52);
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --gradient-water: linear-gradient(135deg, rgba(2, 105, 150, 0.8), rgba(0, 150, 200, 0.6));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-wrap: balance;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(2, 105, 150, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: var(--gradient-water);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="water" patternUnits="userSpaceOnUse" width="100" height="100"><path d="M0,50 Q25,30 50,50 T100,50" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(%23water)"/></svg>');
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-bg {
+            background-image: url('images/visuel.jpg');
+            background-repeat: none;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .date-location {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-button:hover {
+            background: rgba(196, 30, 52, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 30, 52, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            display: none;
+        }
+
+        .main-content.active {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-water);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Photographers Section */
+        .photographers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .photographer-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .photographer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .photographer-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 4px solid var(--primary-color);
+        }
+
+        .photographer-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .photographer-card .specialty {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: rgba(2, 105, 150, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* President Message */
+        .president-message {
+            background: linear-gradient(135deg, var(--light-bg), rgba(2, 105, 150, 0.05));
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .president-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            float: left;
+            margin: 0 2rem 1rem 0;
+            border: 4px solid var(--primary-color);
+        }
+
+        .quote {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-style: italic;
+            color: var(--text-color);
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+        }
+
+        /* Media Section */
+        .media-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            margin: 1rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-color);
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .president-photo {
+                float: none;
+                display: block;
+                margin: 0 auto 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">Festival Photo St-Cergue</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#" class="nav-link" onclick="showPage('home')">Accueil</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('photographers')">Photographes</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('president')">Mot du Président</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('sponsors')">Sponsors</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('media')">Médias</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="main-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <a href="https://letempsdunepose.ch/"><img src="images/logo-clair.png" alt="Logo Club Photo de St-Cergue"></a>
+                <p class="date-location">présente le...</p>
+                <h1>1er Festival Photographique de St-Cergue</h1>
+                <p class="subtitle">L'eau dans tous ses états</p>
+                <p class="date-location">13-15 Mars 2026 • St-Cergue</p>
+                <a href="dossier-presse.pdf" class="cta-button">Dossier de Presse PDF</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <div class="container">
+                <h2>À propos du Festival</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Le Club Photo de St-Cergue <a href="https://letempsdunepose.ch/">Le Temps d'une Pose</a> vous invite à découvrir l'exposition photographique exceptionnelle dédiée au thème "L'eau dans tous ses états".</p>
+
+                        <p>Du 13 au 15 mars 2026, plongez dans un univers visuel où l'eau se révèle sous toutes ses formes : gouttelettes cristallines, océans tumultueux, rivières paisibles, glace scintillante et vapeur mystérieuse.</p>
+
+                        <p>Ce festival réunit des photographes passionnés qui capturent la beauté et la puissance de l'élément aquatique, élément vital de notre planète.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/eau1.jpg" alt="Thème de l'eau">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Preview -->
+        <section class="section" style="background: var(--light-bg);">
+            <div class="container">
+                <h2>Aperçu des Œuvres</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="images/eau2.jpg" alt="Reflets sur l'eau">
+                        <div class="gallery-overlay">Reflets</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/eau4.jpg" alt="Vagues océaniques">
+                        <div class="gallery-overlay">Vagues</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/eau3.jpg" alt="Gouttelettes de rosée">
+                        <div class="gallery-overlay">Gouttelettes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Photographers Page -->
+    <div id="photographers" class="main-content">
+        <div style="height: 80px;"></div>
+        <section class="section">
+            <div class="container">
+                <h2>Photographes Invités</h2>
+                <div class="photographers-grid">
+                    <div class="photographer-card">
+                        <img src="images/bitton.jpg" alt="Samuel Bitton" class="photographer-photo">
+                        <h3>Samuel Bitton</h3>
+                        <p class="specialty">Photographe de montagne</p>
+                        <p>Il capture la grandeur
+                            des paysages alpins en format panoramique. Lauréat de nombreux
+                            concours internationaux, il partage sa passion à travers livres,
+                            expositions, stages photo et sa galerie à Crans-Montana, qu’il a
+                            fondée en 2017 avec sa compagne.</p>
+                    </div>
+                    <div class="photographer-card">
+                        <img src="images/rouge.jpg" alt="David Rouge" class="photographer-photo">
+                        <h3>David Rouge</h3>
+                        <p class="specialty">Photographe aventurier</p>
+                        <p>Il capture la beauté du
+                            monde sauvage à travers ses voyages aux confins du globe. Son
+                            regard, forgé par l’exploration et l’immersion, traduit une quête de
+                            lumière, d’émotion et de vérité. Lauréat de prix internationaux, il
+                            partage sa vision à travers expositions, conférences et voyages
+                            photo.</p>
+                    </div>
+                    <div class="photographer-card">
+                        <img src="images/vaucoulon.jpg" alt="Patryck Vaucoulon" class="photographer-photo">
+                        <h3>Patryck Vaucoulon</h3>
+                        <p class="specialty">Photographe naturaliste</p>
+                        <p>Il capte la beauté du vivant avec une précision scientifique et un regard poétique. De
+                            l’Antarctique à Madagascar, ses expéditions donnent naissance à des images sensibles et rigoureuses. Ses œuvres sont exposées
+                            dans des galeries internationales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- President Message Page -->
+    <div id="president" class="main-content">
+        <div style="height: 80px;"></div>
+        <section class="section">
+            <div class="container">
+                <h2>Mot du Président</h2>
+                <div class="president-message">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><circle fill='%23026996' cx='60' cy='60' r='60'/><circle fill='%23ffffff' cx='60' cy='50' r='20'/><ellipse fill='%23ffffff' cx='60' cy='85' rx='25' ry='15'/></svg>" alt="Président" class="president-photo">
+                    <div class="quote">
+                        Chers amis photographes et amateurs d'art,
+
+                        C'est avec une immense fierté que le Club Photo de St-Cergue <a href="https://letempsdunepose.ch/">Le Temps d'une Pose</a> vous présente la première édition de notre festival photographique.
+
+                        Le thème "L'eau dans tous ses états" nous invite à redécouvrir cet élément vital sous un regard artistique nouveau. L'eau, source de vie, miroir de nos émotions, architecte de nos paysages, se révèle ici dans toute sa splendeur à travers l'objectif de nos artistes invités.
+
+                        Cette exposition est le fruit d'une passion commune : celle de figer l'instant, de capturer l'émotion, de révéler la beauté qui nous entoure. Je vous invite à vous laisser porter par cette vague créative qui déferlera sur St-Cergue du 13 au 15 mars 2026.
+
+                        Venez nombreux partager ces moments d'exception et plonger dans l'univers fascinant de la photographie aquatique.
+                    </div>
+                    <p style="text-align: right; margin-top: 2rem; font-weight: bold; color: var(--primary-color);">
+                        Dominique Gafner<br>
+                        Président du Festival Photo de St-Cergue
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sponsors Page -->
+    <div id="sponsors" class="main-content">
+        <div style="height: 80px;"></div>
+        <section class="section">
+            <div class="container">
+                <h2>Nos Sponsors</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+                    Nous remercions chaleureusement nos partenaires qui rendent possible ce festival exceptionnel.
+                </p>
+
+                <div class="form-container">
+                    <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 2rem;">
+                        Devenir Sponsor
+                    </h3>
+                    <form action="mailto:info@festivalphotostcergue.ch" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="company">Nom de l'entreprise *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Personne de contact *</label>
+                            <input type="text" id="contact" name="contact" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="sponsorship">Type de sponsoring</label>
+                            <select id="sponsorship" name="sponsorship">
+                                <option value="">Sélectionnez...</option>
+                                <option value="platinum">Sponsor Platine: chf 1'000.-</option>
+                                <option value="gold">Sponsor Or: chf 500.-</option>
+                                <option value="silver">Sponsor Argent: chf 250.-</option>
+                                <option value="bronze">Sponsor Bronze: chf 100.-</option>
+                                <option value="other">Donateur: moins de chf 100.-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message / Demandes spécifiques</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet de partenariat..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer la demande</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Media Page -->
+    <div id="media" class="main-content">
+        <div style="height: 80px;"></div>
+        <section class="section">
+            <div class="container">
+                <h2>Espace Médias</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+                    Ressources et informations pour les journalistes et médias
+                </p>
+
+                <div class="media-resources">
+                    <div class="resource-card">
+                        <div class="resource-icon">📸</div>
+                        <h3>Photos Haute Résolution</h3>
+                        <p>Images officielles du festival et œuvres des photographes invités pour publication</p>
+                        <a href="mailto:info@festivalphotostcergue.ch?subject=Demande photos HR" class="cta-button" style="margin-top: 1rem; display: inline-block;">Demander</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">🎤</div>
+                        <h3>Interviews</h3>
+                        <p>Possibilité d'interviews avec les photographes invités et les organisateurs</p>
+                        <a href="mailto:info@festivalphotostcergue.ch?subject=Demande interview" class="cta-button" style="margin-top: 1rem; display: inline-block;">Réserver</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">📺</div>
+                        <h3>Tournages</h3>
+                        <p>Autorisations et accompagnement pour reportages vidéo et télévision</p>
+                        <a href="mailto:info@festivalphotostcergue.ch?subject=Demande tournage" class="cta-button" style="margin-top: 1rem; display: inline-block;">Contacter</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">📊</div>
+                        <h3>Statistiques</h3>
+                        <p>Données de fréquentation, profil des visiteurs et impact économique</p>
+                        <a href="mailto:info@festivalphotostcergue.ch?subject=Demande statistiques" class="cta-button" style="margin-top: 1rem; display: inline-block;">Obtenir</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">🏛️</div>
+                        <h3>Informations Pratiques</h3>
+                        <p>Horaires, lieux d'exposition, accès, parking et services visiteurs</p>
+                        <a href="#" class="cta-button" onclick="showPracticalInfo()" style="margin-top: 1rem; display: inline-block;">Consulter</a>
+                    </div>
+                </div>
+
+                <div id="practical-info" style="display: none; margin-top: 3rem; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">Informations Pratiques</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div>
+                            <h4 style="color: var(--secondary-color);">Dates et Horaires</h4>
+                            <p><strong>13-15 Mars 2026</strong><br>
+                                Vendredi : 14h-20h<br>
+                                Samedi : 10h-20h<br>
+                                Dimanche : 10h-18h</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary-color);">Lieu</h4>
+                            <p>Centre Culturel de St-Cergue<br>
+                                Route de la Givrine 4<br>
+                                1264 St-Cergue, Suisse</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary-color);">Tarifs</h4>
+                            <p>Adultes : 15 CHF<br>
+                                Étudiants/AVS : 10 CHF<br>
+                                Enfants -16 ans : Gratuit<br>
+                                Pass 3 jours : 25 CHF</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--secondary-color);">Contact Presse</h4>
+                            <p>Marie Josserand<br>
+                                Responsable Communication<br>
+                                <a href="mailto:info@festivalphotostcergue.ch">info@festivalphotostcergue.ch</a><br>
+                                +41 22 123 45 67
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Festival Photographique de St-Cergue</h3>
+            <div class="contact-info">
+                <p>📧 <a href="mailto:info@festivalphotostcergue.ch">info@festivalphotostcergue.ch</a></p>
+                <p>📱 +41 79 375 33 29</p>
+                <p>📍 1264 St-Cergue, Suisse</p>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p>&copy; 2025 Festival Photographique St-Cergue. Tous droits réservés.</p>
+                <p style="margin-top: 0.5rem; opacity: 0.8;">Organisé par le club photo <a href="https://letempsdunepose.ch/">Le Temps d'une Pose</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.main-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Close mobile menu if open
+            document.getElementById('nav-menu').classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        function downloadPressKit() {
+            alert('Le dossier de presse sera bientôt disponible en téléchargement. Veuillez contacter info@festivalphotostcergue.ch pour plus d\'informations.');
+        }
+
+        function showPracticalInfo() {
+            const info = document.getElementById('practical-info');
+            if (info.style.display === 'none') {
+                info.style.display = 'block';
+                info.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                info.style.display = 'none';
+            }
+        }
+
+        // Smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add scroll effect to navbar
+            window.addEventListener('scroll', function () {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(2, 105, 150, 0.98)';
+                    navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                } else {
+                    navbar.style.background = 'rgba(2, 105, 150, 0.95)';
+                    navbar.style.boxShadow = 'none';
+                }
+            });
+
+            // Add animation on scroll for gallery items
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe gallery items and cards
+            const animatedElements = document.querySelectorAll('.gallery-item, .photographer-card, .resource-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                observer.observe(el);
+            });
+        });
+
+        // Form submission handler
+        document.addEventListener('DOMContentLoaded', function () {
+            const sponsorForm = document.querySelector('#sponsors form');
+            if (sponsorForm) {
+                sponsorForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Get form data
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData);
+
+                    // Create email body
+                    let emailBody = 'Nouvelle demande de sponsoring:\n\n';
+                    for (const [key, value] of Object.entries(data)) {
+                        if (value) {
+                            emailBody += `${key}: ${value}\n`;
+                        }
+                    }
+
+                    // Create mailto link
+                    const subject = 'Demande de sponsoring - Festival Photo St-Cergue 2026';
+                    const mailtoLink = `mailto:info@festivalphotostcergue.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+                    // Open email client
+                    window.location.href = mailtoLink;
+
+                    // Show confirmation
+                    alert('Votre demande va être envoyée via votre client email. Merci de votre intérêt pour notre festival !');
+                });
+            }
+        });
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function () {
+            // Parallax effect for hero background
+            window.addEventListener('scroll', function () {
+                const scrolled = window.pageYOffset;
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent && scrolled < window.innerHeight) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+
+            // Add hover effect to navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                link.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
