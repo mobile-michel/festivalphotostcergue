@@ -6,532 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festival Photo St-Cergue 2026 - L'eau dans tous ses états</title>
     <meta name="description" content="Le 1er festival Photo de St-Cergue aura lieu du 13 au 15 mars 2026 et aura pour thème L'Eau dans Tous ses États">
-    <style>
-        :root {
-            --primary-color: rgb(2, 105, 150);
-            --secondary-color: rgb(196, 30, 52);
-            --text-color: #333;
-            --light-bg: #f8f9fa;
-            --gradient-water: linear-gradient(135deg, rgba(2, 105, 150, 0.8), rgba(0, 150, 200, 0.6));
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
-
-        h1 {
-            text-wrap: balance;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(2, 105, 150, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: var(--gradient-water);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 110%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="water" patternUnits="userSpaceOnUse" width="100" height="100"><path d="M0,50 Q25,30 50,50 T100,50" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(%23water)"/></svg>');
-            animation: wave 10s alternate infinite;
-        }
-
-        @keyframes wave {
-            0% {
-                transform: translateX(0px);
-            }
-
-            100% {
-                transform: translateX(-50px);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .hero-bg {
-            background-image: url('images/visuel.jpg');
-            background-repeat: none;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .hero .date-location {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.9s both;
-        }
-
-        .cta-button:hover {
-            background: rgba(196, 30, 52, 0.8);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(196, 30, 52, 0.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Main Content */
-        .main-content {
-            display: none;
-        }
-
-        .main-content.active {
-            display: block;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--secondary-color);
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-water);
-            opacity: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Photographers Section */
-        .photographers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .photographer-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .photographer-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .photographer-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1rem;
-            border: 4px solid var(--primary-color);
-        }
-
-        .photographer-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .photographer-card .specialty {
-            color: var(--secondary-color);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        /* Form Styles */
-        .form-container {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 2rem auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .submit-btn {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            background: rgba(2, 105, 150, 0.8);
-            transform: translateY(-2px);
-        }
-
-        /* President Message */
-        .president-message {
-            background: linear-gradient(135deg, var(--light-bg), rgba(2, 105, 150, 0.05));
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-            position: relative;
-        }
-
-        .president-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            float: left;
-            margin: 0 2rem 1rem 0;
-            border: 4px solid var(--primary-color);
-        }
-
-        .quote {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            font-style: italic;
-            color: var(--text-color);
-        }
-
-        .quote::before {
-            content: '"';
-            font-size: 3rem;
-            color: var(--primary-color);
-            position: absolute;
-            top: 1rem;
-            left: 2rem;
-        }
-
-        /* Media Section */
-        .media-resources {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .resource-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .resource-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer h3 {
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
-            margin: 1rem 0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--primary-color);
-                padding: 1rem;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section h2 {
-                font-size: 2rem;
-            }
-
-            .president-photo {
-                float: none;
-                display: block;
-                margin: 0 auto 1rem;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -543,6 +18,7 @@
                 <li><a href="#" class="nav-link" onclick="showPage('home')">Accueil</a></li>
                 <li><a href="#" class="nav-link" onclick="showPage('photographers')">Photographes</a></li>
                 <li><a href="#" class="nav-link" onclick="showPage('president')">Mot du Président</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('reglement')">Règlement</a></li>
                 <li><a href="#" class="nav-link" onclick="showPage('sponsors')">Sponsors</a></li>
                 <li><a href="#" class="nav-link" onclick="showPage('media')">Médias</a></li>
             </ul>
@@ -806,6 +282,74 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Reglement du festival Page -->
+    <div id="reglement" class="main-content">
+        <div style="height: 80px;"></div>
+        <section class="section">
+            <div class="container">
+                <h2>Règlement du festival photo</h2>
+                <div class="president-message">
+                    <section id="article1">
+                        <h2>Article 1: Candidatures 2026</h2>
+                        <p>
+                            Le club photo "Le Temps d'une Pose" organise son 1er Festival photo de Saint-Cergue et un appel à candidatures pour des photographes amateurs ou professionnels est lancé dès le [à définir].
+                        </p>
+                        <p>
+                            Cette 1ère édition se déroulera du 13 au 15 mars 2026 dans la commune de Saint-Cergue (Suisse), salles communales du Vallon, avec pour thème <strong style="color: #2563eb;">"l'eau dans tous ses états"</strong>.
+                        </p>
+                    </section>
+
+                    <section id="article2">
+                        <h2>Article 2: Comment exposer</h2>
+
+                        <h3>2_A: Formulaire d'inscription</h3>
+                        <p>Afin de transmettre votre dossier, merci de respecter les informations suivantes:</p>
+                        <ol>
+                            <li>Le dossier doit être déposé au format <code>.ZIP</code>.</li>
+                            <li>
+                                Le dossier doit être nommé de la manière suivante: <br>
+                                <strong style="font-family: monospace; color: #1d4ed8;">"NOM Prénom_Titre de votre série exposée"</strong><br>
+                                Les images seront nommées de la manière suivante:<br>
+                                <strong style="font-family: monospace; color: #1d4ed8;">"NOM Prénom_Titre de la photo"</strong>
+                            </li>
+                            <li>Le dossier est limité à <strong>1Go</strong>.</li>
+                            <li>
+                                Le dossier doit comprendre:
+                                <ul>
+                                    <li><strong>Une série de 10 à 12 photos</strong> que vous souhaitez exposer en respectant le thème du festival.</li>
+                                    <li>Une <strong>fiche de présentation</strong> de votre parcours et le lien de votre site internet (si existant).</li>
+                                    <li>Tout document utile et pertinent pour votre candidature.</li>
+                                    <li><strong style="color: #dc2626;">Pas d'image générée par l'IA (intelligence artificielle).</strong></li>
+                                </ul>
+                            </li>
+                        </ol>
+
+                        <h3>2_B: Organisation</h3>
+                        <p>L'appel à candidature est ouvert jusqu'au <strong style="color: #ef4444;">[date à définir] 2025 minuit</strong>, date limite d'envoi des dossiers.</p>
+                        <p>À l'issue de cette période, les dossiers seront présentés à un jury de sélection composé des membres du comité d'organisation.</p>
+                        <p>Les candidats dont le dossier est retenu seront informés dans les plus brefs délais suivant la délibération. Les candidats dont les dossiers ne sont pas retenus seront personnellement contactés.</p>
+                        <p>La thématique des expositions photos devra obligatoirement porter et respecter le thème du festival <strong style="color: #2563eb;">"L'EAU DANS TOUS SES ÉTATS"</strong>.</p>
+                        <p>Le respect de la faune, de la flore et des milieux naturels d'où proviennent les prises de vue sont des critères importants pour le comité de sélection.</p>
+                        <p>La participation à l'appel à exposer est gratuite.</p>
+                    </section>
+
+                    <section id="article3">
+                        <h2>Article 3: Règlement candidature</h2>
+                        <p>En soumettant sa candidature, le/la photographe certifie qu'il/elle est l'auteur/trice des photographies proposées et qu'il/elle en possède légalement tous les droits.</p>
+                        <p>Les photographes sélectionnés mettront gracieusement à la disposition de l'association organisatrice les fichiers numériques ou 5 images [nombre d'images à définir] de leur exposition qui seront libres de droit et serviront à la promotion du Festival ainsi que des partenaires.</p>
+                        <p>Ces fichiers seront toujours utilisés avec des mentions légales protégeant leurs auteurs/trices.</p>
+                        <p>Le Festival Photo de Saint-Cergue mettra à disposition des photographes sélectionnés un espace d'exposition. La production de l'exposition est à la charge de l'auteur. Le Festival ne prendra en charge aucun frais lié à l'édition, à l'encadrement ou au transport des photographies.</p>
+                        <p>Les photographes sélectionnés devront obligatoirement être présents durant les 3 journées d'ouverture au public du festival <strong style="color: #ef4444;">[à définir pour le vendredi après-midi]</strong>.</p>
+                        <p>Les photographes sélectionnés seront seuls responsables de l'accrochage de leurs photographies le <strong>vendredi matin 13 mars 2026</strong> et de leur décrochage le <strong>dimanche 15 mars après 17h</strong> et 19 heures au plus tard [à définir].</p>
+                        <p>Les organisateurs du festival se réservent le droit, en cas de force majeure, de modifier le présent règlement ou d'annuler l'édition 2026.</p>
+                        <p>Données personnelles: les données collectées feront l'objet d'un traitement informatique pour la gestion des candidatures. Les Participants disposent d'un droit d'accès, de rectification et d'opposition sur les données les concernant.</p>
+                    </section>
+                </div>
+                <p><img src="images/eau1.jpg" alt="Reflets sur l'eau" style="width: 100%; padding-top: 2rem;"></p>
             </div>
         </section>
     </div>
