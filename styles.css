@@ -452,6 +452,15 @@ a {
     margin-bottom: 1rem;
 }
 
+#reglement p {
+    margin: 1em 0;
+}
+
+#reglement ul {
+    margin: 1em 0;
+    padding-left: 40px;
+}
+
 /* Footer */
 .footer {
     background: var(--primary-color);
